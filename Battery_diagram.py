@@ -4,7 +4,7 @@ import numpy as np
 plt.figure(1,figsize=[10,8])
 plt.clf()
 
-jmax=10
+jmax=5
 ax = plt.gca()
 # Ploting the levels
 for j in range(jmax):
@@ -20,6 +20,7 @@ ymin,ymax = ax.get_ylim()
 ax.set_ylim([-0.5,ymax])
 ax.set_xticks(range(jmax))
 ax.set_yticks(range(jmax))
+ax.tick_params(labelsize=15)
 
 ax.set_xlabel(r'$k$', fontsize=20, x=1,y=1)
 ax.set_ylabel(r'$j$', fontsize=20, x=1,y=1)
@@ -28,11 +29,25 @@ ax.set_ylabel(r'$j$', fontsize=20, x=1,y=1)
 # Annotating for states
 for j in range(jmax):
     for k in range(j+1):
-        ax.text(-0.2+k,0.1+j,r'$|'+str(j)+','+str(k)+r'\rangle$') # |j,k>
-        ax.text(-0.2+k,-0.2+j,r'$|'+str(j-k)+','+str(k)+r'\rangle$',color='C0') #|l,k>
+        ax.text(-0.15+k,0.1+j,r'$|'+str(j)+','+str(k)+r'\rangle$',fontsize=15) # |j,k>
+        ax.text(-0.15+k,-0.2+j,r'$|'+str(j-k)+','+str(k)+r'\rangle$',color='C0',fontsize=15) #|l,k>
 
 #%%
 # Transitions
-
+# j transitions (greens)
+for j in range(jmax-1):
+    ax.annotate('', xy=(-0.2+j, 1+j), xytext=(-0.2+j, 0+j),
+            arrowprops=dict(facecolor='C2',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
+            )
+    ax.annotate('', xy=(0.2+j, 0+j), xytext=(0.2+j, 1+j),
+            arrowprops=dict(facecolor='C2',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
+            )
+    ax.annotate('', xy=(0.8+j, 1.05+j), xytext=(0.2+j, 1.05+j),
+            arrowprops=dict(facecolor='C3',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
+            )
+    ax.annotate('', xy=(0.2+j, 1+j), xytext=(0.8+j, 1+j),
+            arrowprops=dict(facecolor='C3',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
+            )
+    
 
 plt.show()
