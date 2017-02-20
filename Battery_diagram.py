@@ -37,17 +37,17 @@ for j in range(jmax):
 # j transitions (greens)
 for j in range(jmax-1):
     ax.annotate('', xy=(-0.2+j, 1+j), xytext=(-0.2+j, 0+j),
-            arrowprops=dict(facecolor='C2',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
+            arrowprops=dict(facecolor='C0',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
             )
-    ax.annotate('', xy=(0.2+j, 0+j), xytext=(0.2+j, 1+j),
-            arrowprops=dict(facecolor='C2',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
-            )
+#    ax.annotate('', xy=(0.2+j, 0+j), xytext=(0.2+j, 1+j),
+#            arrowprops=dict(facecolor='C2',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
+#            )
     ax.annotate('', xy=(0.8+j, 1.05+j), xytext=(0.2+j, 1.05+j),
-            arrowprops=dict(facecolor='C3',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
+            arrowprops=dict(facecolor='C2',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
             )
     ax.annotate('', xy=(0.2+j, 1+j), xytext=(0.8+j, 1+j),
             arrowprops=dict(facecolor='C3',edgecolor='none',shrink=0.1,connectionstyle="arc3,rad=-0.2"),
             )
-    
+    ax.plot(0.5+j,0.93+j,'kx',markeredgewidth=2,markersize=12,zorder=10)
 
 plt.show()
